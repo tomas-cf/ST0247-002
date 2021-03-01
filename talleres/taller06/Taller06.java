@@ -20,7 +20,20 @@ public class Taller06 {
 	* @return un conjunto de unidades por denominacion
 	*/
 	public static int[] cambioGreedy(int n, int[] denominaciones) {
-		
+            int count =0;
+            int ans[] = new int[100];
+            for (int i = 0; i < denominaciones.length; i++) {
+                while (n>=denominaciones[i]) {                    
+                    n-=denominaciones[i];
+                    ans[count]= denominaciones[i];
+                    count++;
+                }
+                if (n==0) {
+                    break;
+                }
+            }
+            
+            return ans;
 	}
 
 	/**
