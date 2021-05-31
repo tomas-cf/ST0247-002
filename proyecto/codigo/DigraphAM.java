@@ -19,7 +19,7 @@ public class DigraphAM extends Digraph {
   }
   
   /**
-   * Método para cálcular la distancia que hay de un vertice a otro.
+   * Método que devuelve la distancia que hay de un vertice a otro.
    */
   public int getWeight(int source, int destination) {
     return matriz[source][destination];
@@ -30,6 +30,7 @@ public class DigraphAM extends Digraph {
    */
   public void addArc(int source, int destination, int weight) {
     matriz[source][destination] = weight;
+    matriz[destination][source] = weight;
   }
   
   /**

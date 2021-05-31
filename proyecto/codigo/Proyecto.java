@@ -61,7 +61,7 @@ class Proyecto
         if(terminado){
              return tiempo;
         }
-        System.out.print("\n\nRuta "+ ruta.size()+":\n0"+" (0 min), ");
+        System.out.print("\n Ruta "+ ruta.size()+":\n0"+" (0 horas), ");
         for(int i = 0; i < g.size()-estaciones.size(); ++i){
              int minimo = Integer.MAX_VALUE;
              int cerca = 0;
@@ -243,7 +243,7 @@ class Proyecto
                 u = Integer.parseInt(arr[2]);
             }
             if(arr[0].equals("breaks")){
-                //breaks = Integer.parseInt(arr[2]);
+                breaks = Integer.parseInt(arr[2]);
             }
             if(arr[0].equals("r")){
                 r = Float.parseFloat(arr[2]);
@@ -285,28 +285,28 @@ class Proyecto
         } 
         linea = lector.readLine();
         linea = lector.readLine();
-        String[] lineaPartida = linea.split(" ");
-        tipo0 = new Estacion(0,Float.parseFloat(lineaPartida[3]));
+        String[] valores = linea.split(" ");
+        tipo0 = new Estacion(0,Float.parseFloat(valores[3]));
         
         linea = lector.readLine();
-        lineaPartida = linea.split(" ");
-        tipo1 = new Estacion(1,Float.parseFloat(lineaPartida[3]));
+        valores = linea.split(" ");
+        tipo1 = new Estacion(1,Float.parseFloat(valores[3]));
         
         linea = lector.readLine();
-        lineaPartida = linea.split(" ");
-        tipo2 = new Estacion(2,Float.parseFloat(lineaPartida[3]));
+        valores = linea.split(" ");
+        tipo2 = new Estacion(2,Float.parseFloat(valores[3]));
         for (int i = 0; i< n; i++){
             for (int j = 0; j < n; j++){
-                g.addArc(i,j,(int)Math.sqrt(
-                                       Math.pow(arreglo[i].getKey()-arreglo[j].getKey(),2) 
-                                       + Math.pow(arreglo[i].getValue()-arreglo[j].getValue(),2)));
+                g.addArc(i,j,(int)Math.sqrt(Math.pow(arreglo[i].getKey()-arreglo[j].getKey(),2) + Math.pow(arreglo[i].getValue()-arreglo[j].getValue(),2)));
             }
         }
         System.out.println(" Tiempo total de rutas: "+agenteViajero(g, c, estaciones));
     }
     
     public static void main(String[] args)throws IOException{
-        leer("tc2c320s24cf4.txt");
+        //leer("test1.txt");
+        //leer("test2.txt");
+        leer("test3.txt");
      
     }
 }
